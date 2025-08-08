@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iBoard Technology</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+
+
+
+
+
+</head>
+<body>
+
+<!-- Top Black Bar -->
+<div class="top-bar">
+    <div class="container">
+        <div class="welcome-text">
+            Welcome to Shenzhen iBoard Technology Co., Ltd.
+        </div>
+        <div class="language-select">
+            Please choose a language:
+            <img src="https://flagcdn.com/w20/cn.png" alt="Chinese">
+            <img src="https://flagcdn.com/w20/gb.png" alt="English">
+            <img src="https://flagcdn.com/w20/es.png" alt="Spanish">
+            <img src="https://flagcdn.com/w20/sa.png" alt="Arabic">
+        </div>
+    </div>
+</div>
+
+<!-- Main Navigation -->
+<nav class="main-nav">
+    <div class="container nav-grid">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="https://via.placeholder.com/120x50?text=iBoard" alt="iBoard Logo">
+        </div>
+
+        <!-- Menu -->
+        <ul class="nav-links">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">PRODUCTS</a></li>
+            <li><a href="#">SOFTWARE</a></li>
+            <li><a href="#">FACTORY</a></li>
+            <li><a href="#">NEWS</a></li>
+            <li><a href="#">ABOUT US</a></li>
+        </ul>
+
+        <!-- Email + Search -->
+        <div class="right-section">
+            <div class="email-section">
+                <img src="https://via.placeholder.com/40x40?text=📧" alt="Email Icon">
+                <div>
+                    <small>Your emails are welcome!</small><br>
+                    <strong>overseas@touch-easy.com</strong>
+                </div>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="search">
+                <button>🔍</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Slider.................................................................................................... -->
+<!-- Swiper CSS -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
+
+<!-- Slider -->
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="Banner003.jpg" alt="Slide 1" /></div>
+    <div class="swiper-slide"><img src="Banner002.jpg" alt="Slide 2" /></div>
+    <div class="swiper-slide"><img src="Banner003.jpg" alt="Slide 3" /></div>
+    <div class="swiper-slide"><img src="Banner002.jpg" alt="Slide 4" /></div>
+  </div>
+  
+  <!-- Pagination and Navigation -->
+  <div class="swiper-pagination"></div>
+  <!-- <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div> -->
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Your Slider Init Script -->
+<script>
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }
+  });
+</script>
+<!--product.................................................................................................-->
+   <section class="product-section">
+    <div class="section-title">Products</div>
+
+    <div class="swiper productSwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="product-card">
+            <div class="img-wrap">
+              <img src="images/product1.jpg" alt="Interactive Whiteboard"
+                   onerror="this.onerror=null;this.src='https://via.placeholder.com/300x180?text=Product+1'">
+            </div>
+            <h3>Interactive Whiteboard</h3>
+            <p>Iboard interactive whiteboard adopts stable and reliable infrared positioning technology...</p>
+            <button>View details</button>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="product-card">
+            <div class="img-wrap">
+              <img src="images/product2.jpg" alt="All-in-One PC"
+                   onerror="this.onerror=null;this.src='https://via.placeholder.com/300x180?text=Product+2'">
+            </div>
+            <h3>Multi-media All-in-One PC</h3>
+            <p>Iboard hanging monitor, steel structure, coating surface, integrate high integration...</p>
+            <button>View details</button>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="product-card">
+            <div class="img-wrap">
+              <img src="images/product3.jpg" alt="Projection Board"
+                   onerror="this.onerror=null;this.src='https://via.placeholder.com/300x180?text=Product+3'">
+            </div>
+            <h3>Projection Board</h3>
+            <p>High-quality projection surface with enhanced clarity for educational use...</p>
+            <button>View details</button>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="product-card">
+            <div class="img-wrap">
+              <img src="images/product4.jpg" alt="Portable Board"
+                   onerror="this.onerror=null;this.src='https://via.placeholder.com/300x180?text=Product+4'">
+            </div>
+            <h3>Portable Interactive board</h3>
+            <p>Compact and portable interactive board, easy to set up and carry for meetings...</p>
+            <button>View details</button>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="swiper-slide">
+          <div class="product-card">
+            <div class="img-wrap">
+              <img src="images/product5.jpg" alt="Laser Projector"
+                   onerror="this.onerror=null;this.src='https://via.placeholder.com/300x180?text=Product+5'">
+            </div>
+            <h3>Laser Projector</h3>
+            <p>Bright, efficient laser projection technology with long-lasting performance...</p>
+            <button>View details</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Custom arrows -->
+      <div class="swiper-button-prev product-prev" aria-label="Previous">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </div>
+      <div class="swiper-button-next product-next" aria-label="Next">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="products.js"></script>
+
+
+
+
+
+
+
+
+  <!--product.................................................................................................-->
+   <section class="product-section">
+    <div class="section-title">Software</div>
+
+    <div class="swiper productSwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="product-card">
+            <div class="img-wrap">
+              <img src="images/product1.jpg" alt="Interactive Whiteboard"
+                   onerror="this.onerror=null;this.src='https://via.placeholder.com/300x180?text=Product+1'">
+            </div>
+            <h3>Interactive Whiteboard</h3>
+            <p>Iboard interactive whiteboard adopts stable and reliable infrared positioning technology...</p>
+            <button>View details</button>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="product-card">
+            <div class="img-wrap">
+              <img src="images/product2.jpg" alt="All-in-One PC"
+                   onerror="this.onerror=null;this.src='https://via.placeholder.com/300x180?text=Product+2'">
+            </div>
+            <h3>Multi-media All-in-One PC</h3>
+            <p>Iboard hanging monitor, steel structure, coating surface, integrate high integration...</p>
+            <button>View details</button>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="product-card">
+            <div class="img-wrap">
+              <img src="images/product3.jpg" alt="Projection Board"
+                   onerror="this.onerror=null;this.src='https://via.placeholder.com/300x180?text=Product+3'">
+            </div>
+            <h3>Projection Board</h3>
+            <p>High-quality projection surface with enhanced clarity for educational use...</p>
+            <button>View details</button>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="product-card">
+            <div class="img-wrap">
+              <img src="images/product4.jpg" alt="Portable Board"
+                   onerror="this.onerror=null;this.src='https://via.placeholder.com/300x180?text=Product+4'">
+            </div>
+            <h3>Portable Interactive board</h3>
+            <p>Compact and portable interactive board, easy to set up and carry for meetings...</p>
+            <button>View details</button>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="swiper-slide">
+          <div class="product-card">
+            <div class="img-wrap">
+              <img src="images/product5.jpg" alt="Laser Projector"
+                   onerror="this.onerror=null;this.src='https://via.placeholder.com/300x180?text=Product+5'">
+            </div>
+            <h3>Laser Projector</h3>
+            <p>Bright, efficient laser projection technology with long-lasting performance...</p>
+            <button>View details</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Custom arrows -->
+      <div class="swiper-button-prev product-prev" aria-label="Previous">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </div>
+      <div class="swiper-button-next product-next" aria-label="Next">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="products.js"></script>
+
+
+<script src="script.js"></script>
+</body>
+</html>

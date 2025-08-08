@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Container */
+.container {
+    width: 95%;
+    max-width: 1300px;
+    margin: auto;
+}
+
+/* Top Black Bar */
+.top-bar {
+    background: #2d2d2d;
+    color: white;
+    font-size: 14px;
+    padding: 5px 0;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.language-select img {
+    margin-left: 5px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+/* Main Navigation */
+.main-nav {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
+    border-bottom: 1px solid #ddd;
+     transition: all 0.3s ease;
+}
+
+.main-nav.scrolled {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 5px 0;
+}
+
+.nav-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 10px 0;
+}
+
+/* Logo */
+.logo img {
+    max-height: 50px;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    line-height: 50px;
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-links a:hover {
+    color: #0073e6;
+}
+
+/* Right Section (Email + Search) */
+.right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.email-section {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.email-section small {
+    color: gray;
+}
+
+.email-section strong {
+    color: red;
+    font-size: 14px;
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.search-box input {
+    border: none;
+    padding: 5px 10px;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-box button {
+    background: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* swiper Section */
+.swiper {
+  width: 100%;
+}
+
+.swiper-slide {
+  width: 100%;
+  height: auto;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important;
+}
+/*product*/
+
+.product-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px 60px;
+}
+
+.section-title {
+  text-align: center;
+  color: #1ba1e2;
+  font-size: 30px;
+  margin-bottom: 28px;
+}
+
+.productSwiper {
+  position: relative;
+  padding: 0 60px;
+}
+
+.productSwiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.productSwiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  width: auto !important;
+}
+
+.product-card {
+  width: 100%;
+  max-width: 270px;
+  background: #fafafa;
+  border-radius: 6px;
+  padding: 18px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 420px;
+  box-sizing: border-box;
+}
+
+.product-card .img-wrap {
+  background: #fff;
+  border: 1px solid #eee;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 18px;
+}
+
+.product-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.product-card h3 {
+  font-size: 16px;
+  margin: 8px 0 12px;
+  color: #222;
+  text-align: center;
+  font-weight: 600;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.5;
+  min-height: 66px;
+  margin: 0 0 18px;
+  overflow: hidden;
+}
+
+.product-card button {
+  margin: 0 auto;
+  background: #f74c2f;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.06);
+}
+
+.product-card button:hover {
+  background: #d63e26;
+}
+
+.product-prev, .product-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  background: transparent;
+  border-radius: 50%;
+}
+
+.product-prev { left: 4px; transform: translate(-50%, -50%); }
+.product-next { right: 4px; transform: translate(50%, -50%); }
+
+.product-prev::after, .product-next::after { display: none; }
+
+.product-prev svg, .product-next svg {
+  stroke: #bbb;
+  transition: stroke 0.15s;
+}
+.product-prev:hover svg, .product-next:hover svg {
+  stroke: #f74c2f;
+}
+
+/* Show navigation arrows for main banner */
+.swiper-button-prev,
+.swiper-button-next {
+  display: flex !important;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Product Card Hover Effect */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* Zoom image on hover inside product card */
+.product-card .img-wrap img {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .img-wrap img {
+  transform: scale(1.1);
+}
+
+
+
+
+
+
+/* Animation: move every 0.3s * 4 slides = 1.2s loop */
+@keyframes slide {
+    0% { transform: translateX(0%); }
+    25% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    75% { transform: translateX(-300%); }
+    100% { transform: translateX(0%); }
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+    .nav-links {
+        display: none;
+    }
+    .right-section {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .slider {
+        height: 40vh;
+    }
+}
+
+
+@media (max-width: 1024px) {
+  .productSwiper { padding: 0 40px; }
+}
+@media (max-width: 768px) {
+  .productSwiper { padding: 0 30px; }
+}
