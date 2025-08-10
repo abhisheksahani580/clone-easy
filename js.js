@@ -1,122 +1,113 @@
-// Select the navbar
-const navbar = document.querySelector('.main-nav');
+document.addEventListener("DOMContentLoaded", () => {
 
-// Listen for scroll
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+  /* ---------------- Navbar Scroll Effect ---------------- */
+  const navbar = document.querySelector(".main-nav");
+  if (navbar) {
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
+    });
+  }
+
+  /* ---------------- Banner Swiper Slider ---------------- */
+  if (typeof Swiper !== "undefined") {
+    const bannerEl = document.querySelector(".swiper");
+    if (bannerEl) {
+      const paginationEl = bannerEl.querySelector(".swiper-pagination");
+      const bannerSwiper = new Swiper(bannerEl, {
+        loop: true,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        pagination: paginationEl ? { el: paginationEl, clickable: true } : false,
+        grabCursor: true,
+        effect: "slide",
+      });
+
+      // Pause on hover (desktop only)
+      bannerEl.addEventListener("mouseenter", () => bannerSwiper.autoplay.stop());
+      bannerEl.addEventListener("mouseleave", () => bannerSwiper.autoplay.start());
     }
-});
-//slider query
-import Swiper from 'swiper';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-// or include via CDN and skip imports
-
-const swiper = new Swiper('.swiper', {
-  loop: true,
-  autoplay: { delay: 3000, disableOnInteraction: false },
-  pagination: { el: '.swiper-pagination', clickable: true },
-  navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-});
-// product
-
-
-// script.js
-document.addEventListener("DOMContentLoaded", function () {
-  // ---------- BANNER SLIDER (first .swiper on the page) ----------
-  const allSwipers = document.querySelectorAll('.swiper');
-  const bannerEl = allSwipers.length ? allSwipers[0] : null;
-
-  let bannerSwiper = null;
-  if (bannerEl) {
-    // find pagination inside banner to scope it correctly
-    const bannerPagination = bannerEl.querySelector('.swiper-pagination');
-
-    bannerSwiper = new Swiper(bannerEl, {
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      },
-      pagination: bannerPagination ? { el: bannerPagination, clickable: true } : false,
-      // keep arrows off for banner unless you add elements: nextEl/prevEl
-      grabCursor: true,
-      effect: 'slide'
-    });
-
-    // pause/resume on hover (desktop)
-    bannerEl.addEventListener('mouseenter', () => bannerSwiper.autoplay.stop());
-    bannerEl.addEventListener('mouseleave', () => bannerSwiper.autoplay.start());
+  } else {
+    console.warn("Swiper not loaded. Please include Swiper JS & CSS.");
   }
 
-  // ---------- PRODUCT SWIPER (the productSwiper container) ----------
-  const productEl = document.querySelector('.productSwiper');
-  let productSwiper = null;
-  if (productEl) {
-    // show custom arrows if CSS hid them (force via inline style)
-    const next = productEl.querySelector('.product-next');
-    const prev = productEl.querySelector('.product-prev');
-    if (next) next.style.display = 'flex';
-    if (prev) prev.style.display = 'flex';
+  /* ---------------- Product Horizontal Slider ---------------- */
+  const prevBtn = document.querySelector(".hd .prev");
+  const nextBtn = document.querySelector(".hd .next");
+  const scrollContainer = document.querySelector(".tempWrap");
+  const scrollAmount = 275; // Card width + gap
+  let autoplayInterval;
 
-    // Initialize Swiper on the product container element
-    productSwiper = new Swiper(productEl, {
-      slidesPerView: 4,
-      spaceBetween: 20,
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      },
-      navigation: {
-        // use elements scoped to the product container (if present)
-        nextEl: next || '.product-next',
-        prevEl: prev || '.product-prev'
-      },
-      // responsive breakpoints
-      breakpoints: {
-        0:    { slidesPerView: 1 },
-        576:  { slidesPerView: 2 },
-        900:  { slidesPerView: 3 },
-        1200: { slidesPerView: 4 }
+  if (prevBtn && nextBtn && scrollContainer) {
+    const autoScroll = () => {
+      const atEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1;
+      scrollContainer.scrollTo({
+        left: atEnd ? 0 : scrollContainer.scrollLeft + scrollAmount,
+        behavior: "smooth",
+      });
+    };
+
+    const resetAutoplay = () => {
+      clearInterval(autoplayInterval);
+      autoplayInterval = setInterval(autoScroll, 3000);
+    };
+
+    prevBtn.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      resetAutoplay();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      resetAutoplay();
+    });
+
+    ["mouseenter", "focusin"].forEach(evt => scrollContainer.addEventListener(evt, () => clearInterval(autoplayInterval)));
+    ["mouseleave", "focusout"].forEach(evt => scrollContainer.addEventListener(evt, resetAutoplay));
+
+    resetAutoplay();
+  } else {
+    console.warn("Product slider elements missing.");
+  }
+
+  /* ---------------- Footer Menu Toggle ---------------- */
+  window.toggleMenu = () => {
+    const navMenu = document.getElementById("navMenu");
+    if (navMenu) navMenu.classList.toggle("active");
+  };
+
+  /* ---------------- Search Function ---------------- */
+  window.searchContent = () => {
+    const query = document.getElementById("searchInput")?.value.trim();
+    alert(query ? `Searching for: ${query}` : "Please enter something to search.");
+  };
+});
+/* ------------------------------Drop down ----------------*/
+// Enable dropdown toggle on mobile devices
+document.querySelectorAll('.nav-links li.dropdown > a').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    // Prevent default link navigation if dropdown is present
+    e.preventDefault();
+    const dropdownMenu = this.nextElementSibling;
+    if (dropdownMenu) {
+      // Toggle visibility
+      if (dropdownMenu.style.display === 'block') {
+        dropdownMenu.style.display = 'none';
+      } else {
+        // Close any other open dropdowns first (optional)
+        document.querySelectorAll('.nav-links .dropdown-menu').forEach(menu => {
+          menu.style.display = 'none';
+        });
+        dropdownMenu.style.display = 'block';
       }
-    });
-
-    // pause autoplay when user hovers product area
-    productEl.addEventListener('mouseenter', () => productSwiper.autoplay.stop());
-    productEl.addEventListener('mouseleave', () => productSwiper.autoplay.start());
-  }
-
-  // ---------- Safety: ensure any hidden global arrows are visible ----------
-  // Some CSS earlier used `display:none !important` on .swiper-button-*. If that's still present,
-  // force them visible (this sets inline style which overrides CSS rules).
-  document.querySelectorAll('.swiper-button-prev, .swiper-button-next').forEach(btn => {
-    // only change if element exists and is inside the page
-    if (btn) {
-      btn.style.display = 'flex';
-      btn.style.alignItems = 'center';
-      btn.style.justifyContent = 'center';
     }
   });
 });
 
-
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
+// Optional: close dropdown if clicked outside
+document.addEventListener('click', function(e) {
+  const isClickInside = e.target.closest('.nav-links li.dropdown');
+  if (!isClickInside) {
+    document.querySelectorAll('.nav-links .dropdown-menu').forEach(menu => {
+      menu.style.display = 'none';
+    });
+  }
 });
-
-
-
-
-
-
-
-
