@@ -1,113 +1,54 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* ---------------- Navbar Scroll Effect ---------------- */
-  const navbar = document.querySelector(".main-nav");
-  if (navbar) {
-    window.addEventListener("scroll", () => {
-      navbar.classList.toggle("scrolled", window.scrollY > 50);
-    });
-  }
-
-  /* ---------------- Banner Swiper Slider ---------------- */
-  if (typeof Swiper !== "undefined") {
-    const bannerEl = document.querySelector(".swiper");
-    if (bannerEl) {
-      const paginationEl = bannerEl.querySelector(".swiper-pagination");
-      const bannerSwiper = new Swiper(bannerEl, {
-        loop: true,
-        autoplay: { delay: 3000, disableOnInteraction: false },
-        pagination: paginationEl ? { el: paginationEl, clickable: true } : false,
-        grabCursor: true,
-        effect: "slide",
-      });
-
-      // Pause on hover (desktop only)
-      bannerEl.addEventListener("mouseenter", () => bannerSwiper.autoplay.stop());
-      bannerEl.addEventListener("mouseleave", () => bannerSwiper.autoplay.start());
-    }
-  } else {
-    console.warn("Swiper not loaded. Please include Swiper JS & CSS.");
-  }
-
-  /* ---------------- Product Horizontal Slider ---------------- */
-  const prevBtn = document.querySelector(".hd .prev");
-  const nextBtn = document.querySelector(".hd .next");
-  const scrollContainer = document.querySelector(".tempWrap");
-  const scrollAmount = 275; // Card width + gap
-  let autoplayInterval;
-
-  if (prevBtn && nextBtn && scrollContainer) {
-    const autoScroll = () => {
-      const atEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1;
-      scrollContainer.scrollTo({
-        left: atEnd ? 0 : scrollContainer.scrollLeft + scrollAmount,
-        behavior: "smooth",
-      });
-    };
-
-    const resetAutoplay = () => {
-      clearInterval(autoplayInterval);
-      autoplayInterval = setInterval(autoScroll, 3000);
-    };
-
-    prevBtn.addEventListener("click", () => {
-      scrollContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-      resetAutoplay();
-    });
-
-    nextBtn.addEventListener("click", () => {
-      scrollContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      resetAutoplay();
-    });
-
-    ["mouseenter", "focusin"].forEach(evt => scrollContainer.addEventListener(evt, () => clearInterval(autoplayInterval)));
-    ["mouseleave", "focusout"].forEach(evt => scrollContainer.addEventListener(evt, resetAutoplay));
-
-    resetAutoplay();
-  } else {
-    console.warn("Product slider elements missing.");
-  }
-
-  /* ---------------- Footer Menu Toggle ---------------- */
-  window.toggleMenu = () => {
-    const navMenu = document.getElementById("navMenu");
-    if (navMenu) navMenu.classList.toggle("active");
-  };
-
-  /* ---------------- Search Function ---------------- */
-  window.searchContent = () => {
-    const query = document.getElementById("searchInput")?.value.trim();
-    alert(query ? `Searching for: ${query}` : "Please enter something to search.");
-  };
+const swiper = new Swiper('.swiper', {
+  loop: true,
+  autoplay: { delay: 3000, disableOnInteraction: false },
+  pagination: { el: '.swiper-pagination', clickable: true }
 });
-/* ------------------------------Drop down ----------------*/
-// Enable dropdown toggle on mobile devices
-document.querySelectorAll('.nav-links li.dropdown > a').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    // Prevent default link navigation if dropdown is present
-    e.preventDefault();
-    const dropdownMenu = this.nextElementSibling;
-    if (dropdownMenu) {
-      // Toggle visibility
-      if (dropdownMenu.style.display === 'block') {
-        dropdownMenu.style.display = 'none';
-      } else {
-        // Close any other open dropdowns first (optional)
-        document.querySelectorAll('.nav-links .dropdown-menu').forEach(menu => {
-          menu.style.display = 'none';
-        });
-        dropdownMenu.style.display = 'block';
-      }
+
+let matches = [];
+let currentIndex = -1;
+
+function removeHighlights() {
+  document.querySelectorAll(".highlight").forEach(el => {
+    el.outerHTML = el.innerHTML;
+  });
+}
+
+function highlightAll(query) {
+  removeHighlights();
+  matches = [];
+  currentIndex = -1;
+  if (!query) return;
+
+  const regex = new RegExp(`(${query})`, "gi");
+  document.body.querySelectorAll("*:not(script):not(style)").forEach(el => {
+    if (el.children.length === 0 && el.textContent.match(regex)) {
+      el.innerHTML = el.innerHTML.replace(regex, `<span class="highlight">$1</span>`);
     }
   });
-});
 
-// Optional: close dropdown if clicked outside
-document.addEventListener('click', function(e) {
-  const isClickInside = e.target.closest('.nav-links li.dropdown');
-  if (!isClickInside) {
-    document.querySelectorAll('.nav-links .dropdown-menu').forEach(menu => {
-      menu.style.display = 'none';
-    });
-  }
-});
+  matches = Array.from(document.querySelectorAll(".highlight"));
+}
+
+function searchNext(query) {
+  if (!query) return;
+  if (matches.length === 0) highlightAll(query);
+  if (matches.length === 0) return;
+
+  currentIndex = (currentIndex + 1) % matches.length;
+  matches[currentIndex].scrollIntoView({ behavior: "smooth", block: "center" });
+  matches.forEach(m => m.classList.remove("active-highlight"));
+  matches[currentIndex].classList.add("active-highlight");
+}
+
+function setSearchEvents(inputId, btnId) {
+  const input = document.getElementById(inputId);
+  const btn = document.getElementById(btnId);
+
+  btn.addEventListener("click", () => searchNext(input.value.trim()));
+  input.addEventListener("keypress", e => {
+    if (e.key === "Enter") searchNext(input.value.trim());
+  });
+}
+
+setSearchEvents("searchInputTop", "searchBtnTop");
+setSearchEvents("searchInputBottom", "searchBtnBottom");
