@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iBoard Technology</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -34,39 +34,34 @@
 
     <div class="nav-toggle" aria-label="Toggle navigation menu" tabindex="0">&#9776;</div>
 
- <ul class="nav-links">
-  <li><a href="index.html">HOME</a></li>
-
-  <li class="dropdown">
-    <a href="products.html">PRODUCTS ▾</a>
-    <ul class="dropdown-menu">
-      <li><a href="products-interactive-flat-panels.html">Interactive Flat Panels</a></li>
-      <li><a href="products-smart-whiteboards.html">Smart Whiteboards</a></li>
-      <li><a href="products-projectors.html">Projectors</a></li>
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li class="dropdown">
+        <a href="products.html">PRODUCTS ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="products-interactive-flat-panels.html">Interactive Flat Panels</a></li>
+          <li><a href="products-smart-whiteboards.html">Smart Whiteboards</a></li>
+          <li><a href="products-projectors.html">Projectors</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="software.html">SOFTWARE ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="software-teaching.html">Teaching Software</a></li>
+          <li><a href="software-collaboration.html">Collaboration Tools</a></li>
+        </ul>
+      </li>
+      <li><a href="factory.html">FACTORY</a></li>
+      <li><a href="news.html">NEWS</a></li>
+      <li class="dropdown">
+        <a href="about.html">ABOUT US ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="about-history.html">History</a></li>
+          <li><a href="about-revenue.html">Revenue</a></li>
+          <li><a href="about-policies.html">Policies</a></li>
+        </ul>
+      </li>
     </ul>
-  </li>
-
-  <li class="dropdown">
-    <a href="software.html">SOFTWARE ▾</a>
-    <ul class="dropdown-menu">
-      <li><a href="software-teaching.html">Teaching Software</a></li>
-      <li><a href="software-collaboration.html">Collaboration Tools</a></li>
-    </ul>
-  </li>
-
-  <li><a href="factory.html">FACTORY</a></li>
-  <li><a href="news.html">NEWS</a></li>
-
-  <li class="dropdown">
-    <a href="about.html">ABOUT US ▾</a>
-    <ul class="dropdown-menu">
-      <li><a href="about-history.html">History</a></li>
-      <li><a href="about-revenue.html">Revenue</a></li>
-      <li><a href="about-policies.html">Policies</a></li>
-    </ul>
-  </li>
-</ul>
-
 
     <div class="right-section">
       <div class="email-section">
@@ -77,8 +72,8 @@
         </div>
       </div>
       <div class="search-box">
-        <input type="text" placeholder="search" />
-        <button>🔍</button>
+        <input id="searchInputTop" type="text" placeholder="search" />
+        <button id="searchBtnTop">🔍</button>
       </div>
     </div>
   </div>
@@ -95,8 +90,7 @@
   <div class="swiper-pagination"></div>
 </div>
 
-<!-- Product Section 1 -->
-<!-- Product Section 1 -->
+<!-- Product Section -->
 <div class="contenti clearfix" id="content1">
   <div class="product c">
     <div class="product_t">
@@ -106,7 +100,6 @@
       <div class="bd">
         <div class="tempWrap">
           <ul class="picList">
-            <!-- Product Items -->
             <li>
               <div class="pic">
                 <a href="/products/cmytj1/">
@@ -139,70 +132,49 @@
 </div>
 
 <!-- Software Section -->
- <div class="software">
-<div class="contenti clearfix" id="content1">
-  <div class="product c">
-    <div class="product_t">
-      <a href="/products"><strong>Software</strong></a>
-    </div>
-    <div class="product_c_con clearfix">
-      <div class="bd">
-        <div class="tempWrap">
-          <ul class="picList">
-            <!-- Product Items -->
-            <li>
-              <div class="pic">
-                <a href="/products/cmytj1/">
-                  <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&h=250&q=80" alt="Interactive Flat Panels 1" />
-                </a>
-              </div>
-              <div class="title">
-                <strong>Interactive Flat Panels 1</strong>
-                <p>Innovative Multi-touch display with ultra HD resolution ideal for modern classrooms and meetings.</p>
-                <p><a href="/products/cmytj1/">View details</a></p>
-              </div>
-            </li>
-            <li>
-              <div class="pic">
-                <a href="/products/cmytj2/">
-                  <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=400&h=250&q=80" alt="Interactive Flat Panels 2" />
-                </a>
-              </div>
-              <div class="title">
-                <strong>Interactive Flat Panels 2</strong>
-                <p>Seamless integration with popular teaching software and easy wireless connectivity.</p>
-                <p><a href="/products/cmytj2/">View details</a></p>
-              </div>
-            </li>
-          </ul>
+<div class="software">
+  <div class="contenti clearfix" id="content2">
+    <div class="product c">
+      <div class="product_t">
+        <a href="/products"><strong>Software</strong></a>
+      </div>
+      <div class="product_c_con clearfix">
+        <div class="bd">
+          <div class="tempWrap">
+            <ul class="picList">
+              <li>
+                <div class="pic">
+                  <a href="/products/cmytj1/">
+                    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&h=250&q=80" alt="Interactive Flat Panels 1" />
+                  </a>
+                </div>
+                <div class="title">
+                  <strong>Interactive Flat Panels 1</strong>
+                  <p>Innovative Multi-touch display with ultra HD resolution ideal for modern classrooms and meetings.</p>
+                  <p><a href="/products/cmytj1/">View details</a></p>
+                </div>
+              </li>
+              <li>
+                <div class="pic">
+                  <a href="/products/cmytj2/">
+                    <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=400&h=250&q=80" alt="Interactive Flat Panels 2" />
+                  </a>
+                </div>
+                <div class="title">
+                  <strong>Interactive Flat Panels 2</strong>
+                  <p>Seamless integration with popular teaching software and easy wireless connectivity.</p>
+                  <p><a href="/products/cmytj2/">View details</a></p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-</div>
 
-
-
-
-<!-- Navigation Section -->
-<div class="footer-nav-container">
-  <div class="nav-wrapper">
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="footer-nav" id="navMenu">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="software.html">Software</a>
-      <a href="factory.html">Factory</a>
-      <a href="news.html">News</a>
-      <a href="about.html">About Us</a>
-    </div>
-  </div>
-</div>
-
-<!-- Footer Section -->
+<!-- Footer -->
 <footer>
   <div class="footer-content">
     <div class="footer-info">
@@ -214,10 +186,8 @@
     <div class="footer-email">
       <a href="mailto:overseas@touch-easy.com" class="email-btn">E-MAIL US</a>
       <div class="footer-search">
-        <input type="text" id="searchInput" placeholder="Search...">
-        <button onclick="searchContent()">
-          🔍
-        </button>
+        <input type="text" id="searchInputBottom" placeholder="Search..." />
+        <button id="searchBtnBottom">🔍</button>
       </div>
     </div>
   </div>
@@ -225,16 +195,6 @@
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="products.js"></script>
 <script src="script.js"></script>
-
-<script>
-  const swiper = new Swiper('.swiper', {
-    loop: true,
-    autoplay: { delay: 3000, disableOnInteraction: false },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
-  });
-</script>
 </body>
 </html>
