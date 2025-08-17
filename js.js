@@ -52,3 +52,5 @@
 
   setSearchEvents("searchInputTop", "searchBtnTop");
   setSearchEvents("searchInputBottom", "searchBtnBottom");
+
+  
