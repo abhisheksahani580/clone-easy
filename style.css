@@ -129,7 +129,7 @@ body {
 
 
 .logo img {
-    max-height: 50px;
+    max-height: 100px;
 }
 
 /* Navigation Links */
@@ -173,7 +173,7 @@ body {
 .email-section {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 .email-section small {
@@ -184,6 +184,17 @@ body {
     color: red;
     font-size: 14px;
 }
+
+.email-section a {
+  color: inherit; /* keeps the same text color */
+  text-decoration: none; /* remove underline */
+}
+
+.email-section a:hover {
+  color: #0078d7; /* nice blue on hover */
+  
+}
+
 
 /* Search Box */
 .search-box {
