@@ -215,7 +215,7 @@ body {
 
 .search-box input {
     border: none;
-    padding: 5px 10px;
+    padding: 5px 3px;
     outline: none;
     font-size: 14px;
 }
@@ -538,5 +538,6 @@ body {
   color: #ccc;
   
 }
+
 
 
