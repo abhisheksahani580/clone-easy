@@ -20,20 +20,22 @@ body {
     background: #2d2d2d;
     color: white;
     font-size: 14px;
-    padding: 5px 0;
-}
-
-.top-bar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 7px 0;
 }
 
 
+
+.welcome-text{
+    font-size: 14px;
+    color: #fff;
+    line-height: 20px;
+     margin-left: 70px;
+
+}
 
 
 .language-select img {
-    margin-left: 5px;
+    margin-left: 10px;
     cursor: pointer;
     vertical-align: middle;
 }
@@ -129,15 +131,21 @@ body {
 
 
 .logo img {
-    max-height: 100px;
+    max-height: 75px;
+    margin-left: 70px;
 }
 
 /* Navigation Links */
+.main-nav{
+  height: 100px;
+}
+
+
 .nav-links {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 50px;
 }
 
 .nav-links a {
@@ -147,6 +155,7 @@ body {
     text-transform: uppercase;
     text-decoration: none;
     color: black;
+   
 }
 
 .nav-links a:hover {
@@ -433,122 +442,100 @@ body {
   }
 
   /* ===== Navigation Section ===== */
-  .footer-nav-container {
-    background: linear-gradient(90deg, #0f0f0f, #1a1a1a);
-    padding: 12px 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  }
+  /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .nav-wrapper {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-nav {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-
-  .footer-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 15px;
-    padding: 8px 0;
-    position: relative;
-  }
-
-  .footer-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #ff6600;
-    transition: width 0.3s;
-  }
-
-  .footer-nav a:hover::after {
-    width: 100%;
-  }
-
-  /* ===== Hamburger Menu ===== */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-  }
-
-  .hamburger span {
-    width: 25px;
-    height: 3px;
-    background: #fff;
-    border-radius: 2px;
-  }
-
-  /* ===== Footer Section ===== */
-  footer {
-    background-color: #1e1e1e;
-    color: #fff;
-    padding: 30px 15px;
-  }
-
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
-    max-width: 1200px;
-    margin: auto;
-  }
-
-  .footer-info, .footer-email {
-    min-width: 250px;
-    font-size: 14px;
-  }
-
-  .footer-email {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .email-btn {
-    background-color: #f15a29;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .footer-search {
-    display: flex;
-    background: #333;
-    border-radius: 25px;
-    overflow: hidden;
-  }
-
-  .footer-search input {
-    padding: 8px;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: #fff;
-    flex: 1;
-  }
-
-  .footer-search button {
-    background: #0099cc;
-    border: none;
-    padding: 8px 12px;
-  }
-
+/* Top Footer Navigation */
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  padding: 15px;
   
+}
+
+.footer-nav .footer-logo img {
+  height: 50px;
+}
+
+.footer-menu {
+ list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.footer-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  
+}
+
+.footer-menu li a:hover {
+  color: #00bcd4;
+}
+
+/* Main Footer */
+.main-footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.footer-left img {
+  max-width: 150px;
+  margin-bottom: 10px;
+   margin-left: 100px;
+}
+
+.footer-center {
+  flex: 2;
+  min-width: 300px;
+  font-size: 14px;
+  line-height: 2;
+  margin-left: 50px;
+}
+
+.footer-right {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.email-btn {
+  background-color: #eb6b21;
+  color: white;
+  padding: 7px 65px;        /* more padding for elongated look */
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;     /* inline-block so it behaves like a button */
+  
+  border-radius: 100px;       /* makes it pill/elongated circular */
+  transition: background 0.3s ease;
+}
+
+/* Optional hover effect */
+.email-btn:hover {
+  background-color: #d85a18;  /* darker shade on hover */
+}
+
+
+.email-text {
+  font-size: 15px;
+  color: #ccc;
+  
+}
+
