@@ -82,21 +82,31 @@ body {
 
 .card-info h3 {
   margin: 0 0 10px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .card-info p {
   margin: 0 0 15px;
   color: #555;
+  font-size: 14px;
+}
+.card-info h3 a {
+  text-decoration: none;
+  color: inherit;     /* same color as heading */
 }
 
+.card-info h3 a:hover {
+  color: #219aeb;     /* highlight color on hover */
+}
+
+
 .btn {
-  padding: 8px 16px;
+  padding: 3px 7px;
   background: #007acc;
   color: white;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 4px;
+  
+  border-radius: 25px;
 }
 /* Sidebar hover */
 .product-list li a:hover {
@@ -142,6 +152,143 @@ body {
 
 
 
+
+/*interactive white board*/
+
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+    body {
+      font-family: Arial, sans-serif;
+     
+      background: #fff;
+      color: #333;
+    }
+  section {
+  margin-bottom: 30px;   /* space between sections (Features, Specification, Product Show) */
+}
+
+    /* Product Title */
+    .product-title {
+      font-size: 32px;
+      font-weight: 400;
+      margin: 40px 60px 20px;
+      color: #222;
+      line-height: 1.4em;
+    }
+
+    /* Product Series */
+    .series-container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 0 60px 30px;
+      gap: 10px;
+    }
+
+    .series-item {
+      text-align: center;
+      font-size: 14px;
+      cursor: pointer;
+      color: #111;
+    }
+
+    .series-item img {
+      display: block;
+      width: 120px;
+      height: 60px;
+      margin: 0 auto 8px;
+      border: 1px solid #ddd;
+      background: #f9f9f9;
+    }
+
+    .series-item b {
+      font-weight: bold;
+    }
+
+    /* Tabs Section */
+    .tabs {
+      display: flex;
+      justify-content: flex-start;
+      margin: 0 60px;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+
+    .tab {
+      flex: 0 0 auto;
+      padding: 15px 60px;
+      font-size: 18px;
+      color: #444;
+      background: #f7f7f7;
+      border-right: 1px solid #eee;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .tab.active {
+      background: #0094e0;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .tab:hover {
+      background: #eaeaea;
+    }
+
+    /* Tab Content */
+    .tab-content {
+      display: none;
+      padding: 30px 60px;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-content img {
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+      display: block;
+    }
+
+    /* Image Gallery Grid */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  
+  margin-top: 20px;
+}
+
+.image-gallery img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Vertical image list - no gap between images */
+.vertical-images img {
+  display: block;
+  width: 100%;
+  max-width: 950px;   /* Optional: keep it for limiting width */
+  margin: 0;          /* 🚀 Remove spacing */
+  border: none;       /* 🚀 No border */
+  border-radius: 0;   /* 🚀 No rounded corners */
+  box-shadow: none;   /* 🚀 No shadow */
+}
 
 
 
@@ -374,7 +521,7 @@ body {
 
 .search-box input {
     border: none;
-    padding: 5px ;
+    padding: 5px;
     outline: none;
     font-size: 14px;
 }
@@ -597,7 +744,7 @@ body {
     body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f4f4f4;
+    background-color: white;
   }
 
   /* ===== Navigation Section ===== */
@@ -697,6 +844,4 @@ body {
   color: #ccc;
   
 }
-
-
 
